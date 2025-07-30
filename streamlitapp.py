@@ -22,6 +22,7 @@ if st.button("Predict Sentiment"):
         processed_df = prepare_df(df)
 
         prediction = model.predict(processed_df)[0]
+        probabilities = model.predict_proba(processed_df)[0]
         label = "Positive 😀" if prediction == "positive" else "Negative 😞"
 
         st.subheader("Prediction:")
