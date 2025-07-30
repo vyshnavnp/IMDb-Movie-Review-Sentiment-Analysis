@@ -26,3 +26,10 @@ if st.button("Predict Sentiment"):
 
         st.subheader("Prediction:")
         st.success(f"This Review is *{label}*")
+
+         # Display raw prediction probabilities
+        st.subheader("Prediction Probabilities:")
+        st.json({
+            f"{cls}": f"{prob:.4f}"
+            for cls, prob in zip(model.classes_, probabilities)
+        })
